@@ -12,11 +12,29 @@ function createEventCard(event) {
   return `<article class="event-card"><img class="event-image" src="${event.image}" alt="${event.name} event image"><div class="event-card-content"><div class="event-accent"></div><h3>${event.name}</h3><p>${event.description}</p><div class="event-meta"><div>${event.date} <span>· ${event.time}</span></div><div>${event.venue}</div><div>Entry fee: <span>${event.fee || 'Free'}</span></div></div><a class="button button-primary" href="register.html?event=${encodeURIComponent(event.name)}">Register <span>→</span></a></div></article>`;
 }
 
+function enableCardTilt() {
+  document.querySelectorAll('.event-card').forEach((card) => {
+    card.addEventListener('pointermove', (event) => {
+      if (event.pointerType === 'touch') return;
+      const bounds = card.getBoundingClientRect();
+      const rotateX = ((event.clientY - bounds.top) / bounds.height - 0.5) * -5;
+      const rotateY = ((event.clientX - bounds.left) / bounds.width - 0.5) * 5;
+      card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+      card.classList.add('is-tilting');
+    });
+    card.addEventListener('pointerleave', () => {
+      card.style.transform = '';
+      card.classList.remove('is-tilting');
+    });
+  });
+}
+
 function renderEvents() {
   const featuredEvents = document.querySelector('#featured-events');
   const allEvents = document.querySelector('#all-events');
   if (featuredEvents) featuredEvents.innerHTML = collegeEvents.slice(0, 3).map(createEventCard).join('');
   if (allEvents) allEvents.innerHTML = collegeEvents.map(createEventCard).join('');
+  enableCardTilt();
   const eventSelect = document.querySelector('#selectedEvent');
   if (eventSelect) {
     collegeEvents.forEach((event) => eventSelect.add(new Option(event.name, event.name)));
