@@ -40,6 +40,12 @@ function renderEvents() {
     collegeEvents.forEach((event) => eventSelect.add(new Option(event.name, event.name)));
     const selectedEvent = new URLSearchParams(window.location.search).get('event');
     if (selectedEvent) eventSelect.value = selectedEvent;
+    const themeElement = document.querySelector('#event-theme');
+    const isDussehra = selectedEvent === 'Dussehra Celebration 2026';
+    document.body.classList.toggle('dussehra-theme', isDussehra);
+    if (themeElement && isDussehra) {
+      themeElement.innerHTML = '<img src="images/dussehra.jpg" alt="Devotional Durga Puja celebration"><div><strong>Dussehra Celebration 2026</strong><span>Devotional evening · Main Quadrangle</span></div>';
+    }
     const updateFee = () => {
       const event = collegeEvents.find((item) => item.name === eventSelect.value);
       const feeElement = document.querySelector('#event-fee');
