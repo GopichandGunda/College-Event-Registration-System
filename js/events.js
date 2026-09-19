@@ -41,17 +41,25 @@ function renderEvents() {
     const selectedEvent = new URLSearchParams(window.location.search).get('event');
     if (selectedEvent) eventSelect.value = selectedEvent;
     const themeElement = document.querySelector('#event-theme');
-    const isDussehra = selectedEvent === 'Dussehra Celebration 2026';
-    document.body.classList.toggle('dussehra-theme', isDussehra);
-    if (themeElement && isDussehra) {
-      themeElement.innerHTML = '<img src="images/dussehra.jpg" alt="Devotional Durga Puja celebration"><div><strong>Dussehra Celebration 2026</strong><span>Devotional evening · Main Quadrangle</span></div>';
-    }
+    const updateTheme = () => {
+      const event = collegeEvents.find((item) => item.name === eventSelect.value);
+      const isDussehra = event && event.name === 'Dussehra Celebration 2026';
+      document.body.classList.toggle('event-registration-theme', Boolean(event));
+      document.body.classList.toggle('dussehra-theme', Boolean(isDussehra));
+      if (themeElement) {
+        themeElement.innerHTML = event ? `<img src="${event.image}" alt="${event.name} event image"><div><strong>${event.name}</strong><span>${event.date} · ${event.venue}</span></div>` : '';
+      }
+    };
     const updateFee = () => {
       const event = collegeEvents.find((item) => item.name === eventSelect.value);
       const feeElement = document.querySelector('#event-fee');
       if (feeElement) feeElement.textContent = event ? `Entry fee: ${event.fee || 'Free'}` : 'Entry fee: Select an event';
     };
-    eventSelect.addEventListener('change', updateFee);
+    eventSelect.addEventListener('change', () => {
+      updateTheme();
+      updateFee();
+    });
+    updateTheme();
     updateFee();
   }
 }
