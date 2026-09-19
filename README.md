@@ -48,6 +48,8 @@ College-Event-Registration-System/
 
 No installation or package manager is needed.
 
+Event images are stored locally in the `images/` folder. The Dussehra image is a devotional Vijayadashami Durga Puja photograph from [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Vijayadashami_Dasara_Dussehra_Durga_Pooja_India_October_2013.jpg).
+
 ## How LocalStorage Is Used
 
 Registrations are stored in the browser under the key `collegeEventRegistrations`. Each submitted form is converted into an object with a unique ID and saved as a JSON array. The Registrations page reads this array on load, filters it while typing, and writes the updated array back after deletion. Data is local to the browser and is not shared with a server.
