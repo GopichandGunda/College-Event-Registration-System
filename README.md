@@ -50,6 +50,12 @@ No installation or package manager is needed.
 
 Event images are stored locally in the `images/` folder. The Dussehra image is a devotional Vijayadashami Durga Puja photograph from [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Vijayadashami_Dasara_Dussehra_Durga_Pooja_India_October_2013.jpg).
 
+## Android App Wrapper
+
+The `android/` folder contains an Android Studio WebView wrapper for the hosted website. It uses the application ID `com.ciet.collegeevents`, keeps browser LocalStorage enabled, supports the Android back button, and includes the CIET logo.
+
+To build it, open the `android/` folder in Android Studio, allow Gradle to sync, then choose **Build > Generate Signed Bundle / APK > Android App Bundle**. The generated `.aab` file can be uploaded to Google Play Console. The website must be published at the GitHub Pages URL configured in `android/app/src/main/java/com/ciet/collegeevents/MainActivity.java` before the Android app is released.
+
 ## How LocalStorage Is Used
 
 Registrations are stored in the browser under the key `collegeEventRegistrations`. Each submitted form is converted into an object with a unique ID and saved as a JSON array. The Registrations page reads this array on load, filters it while typing, and writes the updated array back after deletion. Data is local to the browser and is not shared with a server.
