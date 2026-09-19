@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Register for a Northbridge College event.">
+  <title>Register | Northbridge College</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header"><div class="container nav-wrap"><a class="brand" href="index.html"><span class="brand-mark">N</span><span>Northbridge <small>College of Engineering</small></span></a><nav class="site-nav" aria-label="Main navigation"><a href="index.html">Home</a><a href="events.html">Events</a><a class="active" href="register.html">Register</a><a href="registrations.html">Registrations</a></nav></div></header>
+  <main>
+    <section class="page-banner compact"><div class="container"><p class="eyebrow">Save your spot</p><h1>Register for an event.</h1><p>Complete the form below. All fields are required.</p></div></section>
+    <section class="section-pad"><div class="container form-layout"><div class="form-intro"><p class="eyebrow">Student registration</p><h2>Show up for something you care about.</h2><p>Your details are stored securely in this browser using LocalStorage. Nothing is sent to a server.</p><div class="mini-note"><strong>Tip</strong><span>Use your official college email so event coordinators can reach you.</span></div></div>
+      <form id="registration-form" class="registration-form" novalidate>
+        <div id="form-message" class="form-message" role="alert" aria-live="polite"></div>
+        <div class="form-row"><div class="field"><label for="studentName">Student Name</label><input type="text" id="studentName" name="studentName" placeholder="e.g. Aanya Sharma" required><small class="error-text"></small></div><div class="field"><label for="rollNumber">Roll Number</label><input type="text" id="rollNumber" name="rollNumber" placeholder="e.g. CSE2026012" required><small class="error-text"></small></div></div>
+        <div class="form-row"><div class="field"><label for="email">Email Address</label><input type="email" id="email" name="email" placeholder="you@college.edu" required><small class="error-text"></small></div><div class="field"><label for="phone">Phone Number</label><input type="tel" id="phone" name="phone" placeholder="10-digit phone number" required><small class="error-text"></small></div></div>
+        <div class="form-row"><div class="field"><label for="department">Department</label><select id="department" name="department" required><option value="">Select department</option><option>Computer Science & Engineering</option><option>Information Technology</option><option>Electronics & Communication</option><option>Mechanical Engineering</option><option>Business Administration</option></select><small class="error-text"></small></div><div class="field"><label for="year">Year of Study</label><select id="year" name="year" required><option value="">Select year</option><option>1st Year</option><option>2nd Year</option><option>3rd Year</option><option>4th Year</option></select><small class="error-text"></small></div></div>
+        <div class="field"><label for="selectedEvent">Selected Event</label><select id="selectedEvent" name="selectedEvent" required><option value="">Choose an event</option></select><small class="error-text"></small></div>
+        <button class="button button-primary button-full" type="submit">Complete registration <span>→</span></button>
+      </form>
+    </div></section>
+  </main>
+  <footer class="site-footer"><div class="container footer-wrap"><p>© 2026 Northbridge College of Engineering</p><p>Student Affairs · Campus Events</p></div></footer>
+  <script src="js/events.js"></script><script src="js/registration.js"></script>
+</body>
+</html>
