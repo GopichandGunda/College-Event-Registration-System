@@ -4,7 +4,8 @@ const collegeEvents = [
   { name: 'Coding Challenge 2026', date: '28 March 2026', time: '9:00 AM - 1:00 PM', venue: 'Computer Lab Complex', description: 'Test your problem-solving skills through an energetic competitive programming sprint.' },
   { name: 'Hackathon 2026', date: '10 April 2026', time: '9:00 AM - 9:00 PM', venue: 'Digital Learning Centre', description: 'Build useful ideas with a team, mentors, and a full day to make something real.' },
   { name: 'Cultural Fest 2026', date: '24 April 2026', time: '4:00 PM - 9:00 PM', venue: 'Main Quadrangle', description: 'An evening of music, dance, theatre, food, and the many cultures of our campus.' },
-  { name: 'Sports Meet 2026', date: '8 May 2026', time: '7:00 AM - 4:00 PM', venue: 'College Sports Ground', description: 'Bring your team spirit to a full day of track, field, and friendly competition.' }
+  { name: 'Sports Meet 2026', date: '8 May 2026', time: '7:00 AM - 4:00 PM', venue: 'College Sports Ground', description: 'Bring your team spirit to a full day of track, field, and friendly competition.' },
+  { name: 'Dussehra Celebration 2026', date: '20 October 2026', time: '5:00 PM - 9:00 PM', venue: 'Main Quadrangle', description: 'Celebrate the spirit of Dussehra with cultural performances, music, traditional food, and community.' }
 ];
 
 function createEventCard(event) {
@@ -17,7 +18,11 @@ function renderEvents() {
   if (featuredEvents) featuredEvents.innerHTML = collegeEvents.slice(0, 3).map(createEventCard).join('');
   if (allEvents) allEvents.innerHTML = collegeEvents.map(createEventCard).join('');
   const eventSelect = document.querySelector('#selectedEvent');
-  if (eventSelect) collegeEvents.forEach((event) => eventSelect.add(new Option(event.name, event.name)));
+  if (eventSelect) {
+    collegeEvents.forEach((event) => eventSelect.add(new Option(event.name, event.name)));
+    const selectedEvent = new URLSearchParams(window.location.search).get('event');
+    if (selectedEvent) eventSelect.value = selectedEvent;
+  }
 }
 
 document.addEventListener('DOMContentLoaded', renderEvents);

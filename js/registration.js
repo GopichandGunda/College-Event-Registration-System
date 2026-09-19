@@ -53,5 +53,3 @@ registrationForm.addEventListener('submit', (event) => {
 });
 
 registrationForm.querySelectorAll('input, select').forEach((field) => field.addEventListener('blur', () => validateField(field)));
-const selectedEvent = new URLSearchParams(window.location.search).get('event');
-if (selectedEvent) document.querySelector('#selectedEvent').value = selectedEvent;
