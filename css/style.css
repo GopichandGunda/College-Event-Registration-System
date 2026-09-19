@@ -58,8 +58,10 @@ h2 { margin: 0; color: var(--navy); font-size: clamp(2rem, 4vw, 3rem); font-weig
 .intro-grid > p { margin: 0; color: var(--muted); font-size: 1.04rem; }
 .section-heading { display: flex; align-items: end; justify-content: space-between; margin-bottom: 33px; }
 .event-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-.event-card { display: flex; flex-direction: column; min-height: 320px; padding: 25px; background: var(--white); border: 1px solid var(--line); transition: transform .2s, box-shadow .2s; }
+.event-card { display: flex; flex-direction: column; min-height: 320px; overflow: hidden; background: var(--white); border: 1px solid var(--line); transition: transform .2s, box-shadow .2s; }
 .event-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+.event-image { width: 100%; height: 150px; object-fit: cover; }
+.event-card-content { display: flex; flex: 1; flex-direction: column; padding: 25px; }
 .event-card:nth-child(2) .event-accent { background: var(--yellow); }.event-card:nth-child(3) .event-accent { background: var(--mint-deep); }
 .event-accent { width: 37px; height: 5px; margin-bottom: 25px; background: var(--coral); }
 .event-card h3 { margin: 0 0 9px; color: var(--navy); font-size: 1.65rem; font-weight: normal; letter-spacing: -.04em; line-height: 1.05; }

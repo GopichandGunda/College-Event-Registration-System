@@ -7,6 +7,7 @@ A beginner-friendly, responsive college event registration website built with HT
 - Responsive home page with college introduction and upcoming events
 - Six sample events: TechFest 2026, Coding Challenge 2026, Hackathon 2026, Cultural Fest 2026, Sports Meet 2026, and Dussehra Celebration 2026
 - Event details including date, time, venue, description, and registration link
+- Relevant local images for every event, including Dussehra Celebration 2026
 - Registration form with student name, roll number, email, phone, department, year, and event
 - Client-side validation for required, email, and phone fields
 - Success message after a valid registration
