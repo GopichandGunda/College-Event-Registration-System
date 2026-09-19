@@ -50,6 +50,8 @@ No installation or package manager is needed.
 
 Event images are stored locally in the `images/` folder. The Dussehra image is a devotional Vijayadashami Durga Puja photograph from [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Vijayadashami_Dasara_Dussehra_Durga_Pooja_India_October_2013.jpg).
 
+The homepage chairman section uses the official chairman image and message from [Chalapathi Institute of Technology](https://city.ac.in/).
+
 ## Android App Wrapper
 
 The `android/` folder contains an Android Studio WebView wrapper for the hosted website. It uses the application ID `com.ciet.collegeevents`, keeps browser LocalStorage enabled, supports the Android back button, and includes the CIET logo.
